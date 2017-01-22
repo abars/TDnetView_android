@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="notification_interval_list_preference">
+        <item>30分</item>
+        <item>1時間</item>
+        <item>3時間</item>
+    </string-array>
+    <string-array name="notification_interval_values_list_preference">
+        <item>1800000</item>
+        <item>3600000</item>
+        <item>10800000</item>
+    </string-array>
+    <string-array name="notification_action_list_preference">
+        <item>通知のみ</item>
+        <item>サウンド</item>
+        <item>バイブ</item>
+        <item>ライト</item>
+        <item>全て</item>
+    </string-array>
+    <string-array name="notification_action_values_list_preference">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>4</item>
+        <item>7</item>
+    </string-array>
+</resources>

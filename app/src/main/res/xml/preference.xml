@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+    <CheckBoxPreference android:key="DAILY_INFO_DISABLE" android:title="日々の開示事項を非表示" android:defaultValue="false"/>
+    <CheckBoxPreference android:key="FULL_SEARCH_DISABLE" android:title="検索対象に本文を含めない" android:defaultValue="false"/>
+    <CheckBoxPreference android:key="NOTIFICATION_ENABLE" android:title="通知を使用する" android:defaultValue="false"/>
+	<ListPreference
+        android:key="NOTIFICATION_INTERVAL"
+        android:defaultValue="3600000"
+        android:title="通知間隔"
+        android:entries="@array/notification_interval_list_preference"
+        android:entryValues="@array/notification_interval_values_list_preference" />
+	<ListPreference
+        android:key="NOTIFICATION_ACTION"
+        android:defaultValue="0"
+        android:title="通知方法"
+        android:entries="@array/notification_action_list_preference"
+        android:entryValues="@array/notification_action_values_list_preference" />
+</PreferenceScreen>

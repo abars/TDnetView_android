@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">TDnetView</string>
+    <string name="title_section1">Today</string>
+    <string name="title_section2">Yesterday</string>
+    <string name="title_section3">Incentive</string>
+    <string name="title_section4">Mark</string>
+    <string name="title_section5">Search</string>
+       <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_example">Reload</string>
+    <string name="action_settings">Settings</string>
+    <string name="fething">Fetching</string>
+    <string name="updating">Updating</string>
+    <string name="searching">Searching</string>
+    <string name="no_data_found">No data found</string>
+    <string name="network_error">Network error occur</string>
+    
+</resources>
