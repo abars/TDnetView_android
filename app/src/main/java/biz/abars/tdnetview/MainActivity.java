@@ -50,6 +50,8 @@ import com.google.android.gms.ads.*;
 //import com.google.android.gms.analytics.GoogleAnalytics;
 //import com.google.android.gms.analytics.HitBuilders;
 
+import com.google.firebase.analytics.FirebaseAnalytics;
+
 public class MainActivity extends Activity implements
 NavigationDrawerFragment.NavigationDrawerCallbacks {
 
@@ -96,6 +98,9 @@ NavigationDrawerFragment.NavigationDrawerCallbacks {
 	private ArrayList<String> search_list; /* 検索履歴 */
 	private String RECENT_SEARCH_QUERY="最近の開示";
 	private final int SEARCH_LIST_N=64;
+
+	/* analytics */
+	private FirebaseAnalytics mFirebaseAnalytics;
 	
 	private SwipeRefreshLayout.OnRefreshListener mOnRefreshListener = new SwipeRefreshLayout.OnRefreshListener() {
 		@Override
@@ -145,6 +150,9 @@ NavigationDrawerFragment.NavigationDrawerCallbacks {
 
 		// Get extra url from notification
 		treat_intent_parameter(getIntent());
+
+		// Obtain the FirebaseAnalytics instance.
+		mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
     }
 	
 	@Override
@@ -771,17 +779,35 @@ NavigationDrawerFragment.NavigationDrawerCallbacks {
 	@Override
 	protected void onStart() {
 	    super.onStart();
+
 	    //Tracker t = getTracker(TrackerName.APP_TRACKER);
 		//t.setScreenName("Main");
 		//t.send(new HitBuilders.AppViewBuilder().build());
+
+		/*
+		Bundle bundle = new Bundle();
+		bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "Page");
+		bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "Main");
+		bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "text");
+		mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
+		*/
 	}
 	 
 	@Override
 	protected void onRestart() {
 	    super.onStart();
+
 	    //Tracker t = getTracker(TrackerName.APP_TRACKER);
 		//t.setScreenName("Main");
 		//t.send(new HitBuilders.AppViewBuilder().build());
+
+		/*
+		Bundle bundle = new Bundle();
+		bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "Page");
+		bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "Main");
+		bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "text");
+		mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
+		*/
 	}
 
 	@Override
