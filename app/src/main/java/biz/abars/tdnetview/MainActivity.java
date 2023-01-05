@@ -12,7 +12,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.support.v4.widget.DrawerLayout;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import android.widget.ListView;
@@ -30,7 +29,7 @@ import java.util.*;
 import android.content.Intent;
 import android.content.ActivityNotFoundException;
 import android.net.Uri;
-import android.support.v4.widget.SwipeRefreshLayout;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.preference.PreferenceManager;
@@ -43,11 +42,13 @@ import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 
+import androidx.drawerlayout.widget.DrawerLayout;
+
 import com.google.android.gms.ads.*;
-import com.google.android.gms.analytics.Logger;
-import com.google.android.gms.analytics.Tracker;
-import com.google.android.gms.analytics.GoogleAnalytics;
-import com.google.android.gms.analytics.HitBuilders;
+//import com.google.android.gms.analytics.Logger;
+//import com.google.android.gms.analytics.Tracker;
+//import com.google.android.gms.analytics.GoogleAnalytics;
+//import com.google.android.gms.analytics.HitBuilders;
 
 public class MainActivity extends Activity implements
 NavigationDrawerFragment.NavigationDrawerCallbacks {
@@ -742,6 +743,7 @@ NavigationDrawerFragment.NavigationDrawerCallbacks {
 
 	//Analytics
     // The following line should be changed to include the correct property id.
+	/*
     private static final String PROPERTY_ID = "UA-8633292-10";
     public static int GENERAL_TRACKER = 0;
     public enum TrackerName {
@@ -764,21 +766,22 @@ NavigationDrawerFragment.NavigationDrawerCallbacks {
         }
         return mTrackers.get(trackerId);
     }
-	
+    */
+
 	@Override
 	protected void onStart() {
 	    super.onStart();
-	    Tracker t = getTracker(TrackerName.APP_TRACKER);
-	    t.setScreenName("Main");
-	    t.send(new HitBuilders.AppViewBuilder().build());
+	    //Tracker t = getTracker(TrackerName.APP_TRACKER);
+		//t.setScreenName("Main");
+		//t.send(new HitBuilders.AppViewBuilder().build());
 	}
 	 
 	@Override
 	protected void onRestart() {
 	    super.onStart();
-	    Tracker t = getTracker(TrackerName.APP_TRACKER);
-	    t.setScreenName("Main");
-	    t.send(new HitBuilders.AppViewBuilder().build());
+	    //Tracker t = getTracker(TrackerName.APP_TRACKER);
+		//t.setScreenName("Main");
+		//t.send(new HitBuilders.AppViewBuilder().build());
 	}
 
 	@Override
