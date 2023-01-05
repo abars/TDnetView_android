@@ -16,6 +16,7 @@ import android.net.Uri;
 import android.os.Environment;
 import android.util.Log;
 import android.content.Context;
+import androidx.core.content.FileProvider;
 
 class DownloadPdf{
 	
@@ -47,6 +48,9 @@ void downloadAndOpenPDF(String pdf_name,String external_cache_dir,Activity activ
             		return;
             	}
         	}
+
+        	// Android 6
+            /*
             Uri path = Uri.fromFile(download_file);
             try {
                 Intent intent = new Intent(Intent.ACTION_VIEW);
@@ -55,6 +59,23 @@ void downloadAndOpenPDF(String pdf_name,String external_cache_dir,Activity activ
                 getActivity().startActivity(intent);
             } catch (ActivityNotFoundException e) {
             	setTextError("PDF Reader application is not installed in your device");
+            }
+            */
+
+            // Android 7
+            // https://sankame.github.io/blog/2018-07-23-android_use_fileprovider/
+            Uri path = FileProvider.getUriForFile(
+                    getActivity()
+                    , getActivity().getApplicationContext().getPackageName() + ".provider"
+                    , download_file);
+            try {
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setDataAndType(path, "application/pdf");
+                intent.putExtra(Intent.EXTRA_STREAM, path);
+                intent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION | Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                getActivity(). startActivity(intent);
+            } catch (ActivityNotFoundException e) {
+                setTextError("PDF Reader application is not installed in your device");
             }
         }
     }).start();
