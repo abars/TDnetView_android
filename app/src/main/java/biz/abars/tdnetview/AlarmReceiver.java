@@ -23,7 +23,7 @@ public class AlarmReceiver extends BroadcastReceiver {
 	
     public static void start_timer(Context context) {
     	Intent intent = new Intent(context, AlarmReceiver.class);  
-        PendingIntent sender = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);  
+        PendingIntent sender = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT);
 
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);  
 
