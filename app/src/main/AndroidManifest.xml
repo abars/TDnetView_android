@@ -5,8 +5,8 @@
     android:versionName="1.10" >
 
     <uses-sdk
-        android:minSdkVersion="14"
-        android:targetSdkVersion="21" />
+        android:minSdkVersion="21"
+        android:targetSdkVersion="29" />
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -17,11 +17,11 @@
         android:allowBackup="true"
         android:icon="@drawable/icon_144"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
 
         <meta-data android:name="com.google.android.gms.version"
                android:value="@integer/google_play_services_version"/>
-        
         <activity
             android:name="biz.abars.tdnetview.MainActivity"
             android:label="@string/app_name"
@@ -54,7 +54,9 @@
             <action android:name="android.intent.action.PACKAGE_REPLACED" />
             <data android:scheme="package"/>
         </intent-filter>		
-        </receiver>  
+        </receiver>
+
+        <uses-library android:name="org.apache.http.legacy" android:required="false" />
 </application>
     
 </manifest>
