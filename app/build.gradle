@@ -11,7 +11,7 @@ android {
     defaultConfig {
         applicationId "biz.abars.tdnetview"
         minSdkVersion 21
-        targetSdkVersion 29
+        targetSdkVersion 31
     }
 
     buildTypes {
