@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1070465129032",
+    "project_id": "tdnetview-d5022",
+    "storage_bucket": "tdnetview-d5022.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1070465129032:android:a5a4f7732bb16c6463967d",
+        "android_client_info": {
+          "package_name": "biz.abars.tdnetview"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1070465129032-chukgtfi1kqa3u8i00p5hrujfsf83tap.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwLYsNn8G6jvY0nyhSGZyKwb5ZcxPQV2s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1070465129032-chukgtfi1kqa3u8i00p5hrujfsf83tap.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1070465129032-r0hpdvv4k3tt609jbft0683m559sghmu.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "biz.abars.tdnetview"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

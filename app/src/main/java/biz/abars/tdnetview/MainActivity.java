@@ -12,7 +12,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.support.v4.widget.DrawerLayout;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import android.widget.ListView;
@@ -30,7 +29,7 @@ import java.util.*;
 import android.content.Intent;
 import android.content.ActivityNotFoundException;
 import android.net.Uri;
-import android.support.v4.widget.SwipeRefreshLayout;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.preference.PreferenceManager;
@@ -43,11 +42,15 @@ import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 
+import androidx.drawerlayout.widget.DrawerLayout;
+
 import com.google.android.gms.ads.*;
-import com.google.android.gms.analytics.Logger;
-import com.google.android.gms.analytics.Tracker;
-import com.google.android.gms.analytics.GoogleAnalytics;
-import com.google.android.gms.analytics.HitBuilders;
+//import com.google.android.gms.analytics.Logger;
+//import com.google.android.gms.analytics.Tracker;
+//import com.google.android.gms.analytics.GoogleAnalytics;
+//import com.google.android.gms.analytics.HitBuilders;
+
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 public class MainActivity extends Activity implements
 NavigationDrawerFragment.NavigationDrawerCallbacks {
@@ -95,6 +98,9 @@ NavigationDrawerFragment.NavigationDrawerCallbacks {
 	private ArrayList<String> search_list; /* 検索履歴 */
 	private String RECENT_SEARCH_QUERY="最近の開示";
 	private final int SEARCH_LIST_N=64;
+
+	/* analytics */
+	private FirebaseAnalytics mFirebaseAnalytics;
 	
 	private SwipeRefreshLayout.OnRefreshListener mOnRefreshListener = new SwipeRefreshLayout.OnRefreshListener() {
 		@Override
@@ -144,6 +150,9 @@ NavigationDrawerFragment.NavigationDrawerCallbacks {
 
 		// Get extra url from notification
 		treat_intent_parameter(getIntent());
+
+		// Obtain the FirebaseAnalytics instance.
+		mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
     }
 	
 	@Override
@@ -742,6 +751,7 @@ NavigationDrawerFragment.NavigationDrawerCallbacks {
 
 	//Analytics
     // The following line should be changed to include the correct property id.
+	/*
     private static final String PROPERTY_ID = "UA-8633292-10";
     public static int GENERAL_TRACKER = 0;
     public enum TrackerName {
@@ -764,21 +774,40 @@ NavigationDrawerFragment.NavigationDrawerCallbacks {
         }
         return mTrackers.get(trackerId);
     }
-	
+    */
+
 	@Override
 	protected void onStart() {
 	    super.onStart();
-	    Tracker t = getTracker(TrackerName.APP_TRACKER);
-	    t.setScreenName("Main");
-	    t.send(new HitBuilders.AppViewBuilder().build());
+
+	    //Tracker t = getTracker(TrackerName.APP_TRACKER);
+		//t.setScreenName("Main");
+		//t.send(new HitBuilders.AppViewBuilder().build());
+
+		/*
+		Bundle bundle = new Bundle();
+		bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "Page");
+		bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "Main");
+		bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "text");
+		mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
+		*/
 	}
 	 
 	@Override
 	protected void onRestart() {
 	    super.onStart();
-	    Tracker t = getTracker(TrackerName.APP_TRACKER);
-	    t.setScreenName("Main");
-	    t.send(new HitBuilders.AppViewBuilder().build());
+
+	    //Tracker t = getTracker(TrackerName.APP_TRACKER);
+		//t.setScreenName("Main");
+		//t.send(new HitBuilders.AppViewBuilder().build());
+
+		/*
+		Bundle bundle = new Bundle();
+		bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "Page");
+		bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "Main");
+		bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "text");
+		mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
+		*/
 	}
 
 	@Override
